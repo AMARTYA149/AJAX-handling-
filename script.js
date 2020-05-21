@@ -23,10 +23,11 @@ function fetchRandomDogImage() {
     // });
 
     //jQuery way of handling Ajax - method 2
-    $.get('https://dog.ceo/api/breeds/image/random',  function(data){
-        
+    $.get('https://dog.ceo/api/breeds/image/random',  function(data){        
             var imageURL = data.message;
             $('#dog-image').attr('src', imageURL);
+            }).fail(function(xhr, textStatus, errorThrown){
+                console.log("Request failed");
             });
 }
 
